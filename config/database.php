@@ -10,6 +10,7 @@ try {
 
     $db->exec('SET NAMES UTF8');
 } catch (PDOException $e) {
+    $db = null;
     die("Erro de conexao: " . $e->getMessage());
 }
 

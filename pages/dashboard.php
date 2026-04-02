@@ -1,3 +1,11 @@
+<?php
+require_once __DIR__ . '/../config/classes/Session.php';
+
+Session::requiredLogin();
+
+$user = Session::getUser();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -14,7 +22,7 @@
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <h1 class="text-2xl font-bold text-gray-800">Controle de Contas</h1>
             <div class="flex items-center gap-4">
-                <span class="text-gray-600">Olá, <?php echo htmlspecialchars($_SESSION['usuario_nome']); ?></span>
+                <span class="text-gray-600">Olá, <?php echo htmlspecialchars($user->nome); ?></span>
                 <a href="logout.php" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded transition">
                     Sair
                 </a>
